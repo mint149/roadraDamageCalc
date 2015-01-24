@@ -2,16 +2,19 @@
 <html> 
 	<head> 
 		<meta charset="utf-8">
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 		<title>ロードラ ダメージ計算</title> 
 	</head> 
 	<body> 
 		<p>ロードラのダメージ計算</p>
-		<p>1体目の攻撃力：<input id="unit1atk"></p>
-		<p>2体目の攻撃力：<input id="unit2atk"></p>
-		<p>3体目の攻撃力：<input id="unit3atk"></p>
-		<p>4体目の攻撃力：<input id="unit4atk"></p>
-		<button id="calc" onclick="calc();">計算</button>
-		<p id="damage">8枚消し時の攻撃力：0</p>
+		<p>1体目の攻撃力：<input id="unit1atk" value="9043"></p>
+		<p>2体目の攻撃力：<input id="unit2atk" value="27501"></p>
+		<p>3体目の攻撃力：<input id="unit3atk" value="27501"></p>
+		<p>4体目の攻撃力：<input id="unit4atk" value="13867"></p>
+		<input type="button" id="calc" value="計算" onclick="calc();">
+		<p id="damage">1枚消し時の攻撃力：0</p>
 	</body>
 </html>
 
