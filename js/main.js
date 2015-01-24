@@ -15,6 +15,7 @@
 
 var atk = new Array(4);
 var assault = 0;
+var assaultNum = 0;
 var tokkou = 3000;
 var zenryoku = 1;
 var weak = 0;
@@ -41,6 +42,7 @@ function calc() {
 	atk[2] = parseInt($("#unit3atk").val());
 	atk[3] = parseInt($("#unit4atk").val());
 	assault = parseInt($("#assault").val());
+	assaultNum = parseInt($("#assaultNum").val());
 	tokkou = parseInt($("#tokkou").val());
 	zenryoku = parseInt($("#zenryoku").val());
 	weak = parseInt($("#weak").val());
