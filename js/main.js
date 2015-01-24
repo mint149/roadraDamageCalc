@@ -19,13 +19,20 @@ var tokkou = 3000;
 var zenryoku = 1;
 var weak = 0;
 var akyuto = 0;
-var hosei = 0;
+var hosei = 70;
 var element = 0;
 var defence = 0;
-var chain = 100;
+var chain = [100,60,50,40,40,40,40,30,30,30,30,30,30,30,30,30];
 var chainhosei = 0;
 var rand = 0;
 var sum = 0;
+
+var damage = [
+	[100,60,50,40,40,40,40,30,30,30,30,30,30,30,30,30],
+	[100,60,50,40,40,40,40,30,30,30,30,30,30,30,30,30],
+	[100,60,50,40,40,40,40,30,30,30,30,30,30,30,30,30],
+	[100,60,50,40,40,40,40,30,30,30,30,30,30,30,30,30]
+]
 
 function calc() {
 	atk[0] = $("#unit1atk").val();
@@ -33,18 +40,22 @@ function calc() {
 	atk[2] = $("#unit3atk").val();
 	atk[3] = $("#unit4atk").val();
 
-	for (var i = 0; i < atk.length; i++) {
-		sum += ((Math.pow(atk[i],0.95)
-		 + atk[i] * assault * 0.01
-		 + tokkou)
-		* zenryoku
-		+ weak * (100 + akyuto) * Math.pow(atk[i],0.46)
-		+ hosei * (300 + element)
-		- defence)
-		* (chain + chainhosei) * 0.01
-		+ atk[i] * 0.01 * rand;
+	for (var unitNum = 0; unitNum < atk.length; unitNum++) {
+		for (var chainNum = 0; chainNum < chain.length; chainNum++) {
+			damage[unitNum][chainNum] = ((Math.pow(atk[unitNum],0.95)
+			 + atk[unitNum] * assault * 0.01
+			 + tokkou)
+			* zenryoku
+			+ weak * (100 + akyuto) * Math.pow(atk[unitNum],0.46)
+			+ hosei * (300 + element)
+			- defence)
+			* (chain[chainNum] + chainhosei) * 0.01
+			+ atk[unitNum] * 0.01 * rand;	
+
+			sum += damage[unitNum][chainNum];
+		};
 	};
 
-	$("#damage").text("1枚消し時の攻撃力：" + sum);
+	$("#damage16panel").text("16枚消し時の攻撃力：" + sum);
 	sum = 0;
 }
