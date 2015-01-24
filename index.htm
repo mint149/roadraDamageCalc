@@ -9,14 +9,24 @@
 	</head> 
 	<body> 
 		<p>ロードラのダメージ計算</p>
-		<p>1体目の攻撃力：<input id="unit1atk" value="9043"></p>
-		<p>2体目の攻撃力：<input id="unit2atk" value="27501"></p>
-		<p>3体目の攻撃力：<input id="unit3atk" value="27501"></p>
-		<p>4体目の攻撃力：<input id="unit4atk" value="13867"></p>
+		<p>1体目の攻撃力：<input id="unit1atk" value=9043></p>
+		<p>2体目の攻撃力：<input id="unit2atk" value=27501></p>
+		<p>3体目の攻撃力：<input id="unit3atk" value=27501></p>
+		<p>4体目の攻撃力：<input id="unit4atk" value=13867></p>
 		<input type="button" id="calc" value="計算" onclick="calc();">
 		<p id="damage1panel">1枚消し時の攻撃力：0</p>
 		<p id="damage8panel">8枚消し時の攻撃力：0</p>
 		<p id="damage16panel">16枚消し時の攻撃力：0</p>
+		<p>アサルト系スキル(%値)：<input id="assault" value=0></p>
+		<p>属性特攻系スキル(上昇値)：<input id="tokkou" value=3000></p>
+		<p>全力の一撃(Yes:2 No:1)：<input id="zenryoku" value=1></p>
+		<p>弱点判定(Yes:1 No:0)：<input id="weak" value=0></p>
+		<p>アキュート(%値)：<input id="akyuto" value=0></p>
+		<p>属性補正(0〜10)：<input id="hosei" value=0></p>
+		<p>属性補正強化(上昇値)：<input id="element" value=0></p>
+		<p>敵の防御：<input id="defence" value=0></p>
+		<p>チェイン補正強化(0〜70)：<input id="chainhosei" value=70></p>
+		<p>乱数(0〜9)：<input id="rand" value=0></p>
 	</body>
 </html>
 

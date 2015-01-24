@@ -35,11 +35,24 @@ var damage = [
 ]
 
 function calc() {
-	atk[0] = $("#unit1atk").val();
-	atk[1] = $("#unit2atk").val();
-	atk[2] = $("#unit3atk").val();
-	atk[3] = $("#unit4atk").val();
+	//値を取得
+	atk[0] = parseInt($("#unit1atk").val());
+	atk[1] = parseInt($("#unit2atk").val());
+	atk[2] = parseInt($("#unit3atk").val());
+	atk[3] = parseInt($("#unit4atk").val());
+	assault = parseInt($("#assault").val());
+	tokkou = parseInt($("#tokkou").val());
+	zenryoku = parseInt($("#zenryoku").val());
+	weak = parseInt($("#weak").val());
+	akyuto = parseInt($("#akyuto").val());
+	hosei = parseInt($("#hosei").val());
+	element = parseInt($("#element").val());
+	defence = parseInt($("#defence").val());
+	chainhosei = parseInt($("#chainhosei").val());
+	rand = parseInt($("#rand").val());
+	sum = 0;
 
+	//16パネル(8パネル*ツイン分)のダメージ計算
 	for (var unitNum = 0; unitNum < atk.length; unitNum++) {
 		for (var chainNum = 0; chainNum < chain.length; chainNum++) {
 			damage[unitNum][chainNum] = ((Math.pow(atk[unitNum],0.95)
@@ -49,13 +62,13 @@ function calc() {
 			+ weak * (100 + akyuto) * Math.pow(atk[unitNum],0.46)
 			+ hosei * (300 + element)
 			- defence)
-			* (chain[chainNum] + chainhosei) * 0.01
+			* Math.min(100,(chain[chainNum] + chainhosei)) * 0.01
 			+ atk[unitNum] * 0.01 * rand;	
 
 			sum += damage[unitNum][chainNum];
 		};
 	};
 
+	//結果表示
 	$("#damage16panel").text("16枚消し時の攻撃力：" + sum);
-	sum = 0;
 }
