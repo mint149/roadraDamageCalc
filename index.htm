@@ -5,129 +5,135 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<title>ロードラ ダメージ計算</title> 
 	</head> 
 	<body> 
-		<p>ロードラのダメージ計算</p>
-		<p>1体目の攻撃力：<input id="unit1atk" value=9043></p>
-		<p>2体目の攻撃力：<input id="unit2atk" value=27501></p>
-		<p>3体目の攻撃力：<input id="unit3atk" value=27501></p>
-		<p>4体目の攻撃力：<input id="unit4atk" value=13867></p>
-		<input type="button" id="calc" value="計算" onclick="calc();">
-		<p>アサルト系スキル(%値)：<input id="assault" value=0></p>
-		<p>アサルト系スキル(上昇値)：<input id="assaultNum" value=0></p>
-		<p>属性特攻系スキル(上昇値)：<input id="tokkou" value=3000></p>
-		<p>全力の一撃(Yes:2 No:1)：<input id="zenryoku" value=1></p>
-		<p>弱点判定(Yes:1 No:0)：<input id="weak" value=0></p>
-		<p>アキュート(%値)：<input id="akyuto" value=0></p>
-		<p>属性補正(0〜10)：<input id="hosei" value=0></p>
-		<p>属性補正強化(上昇値)：<input id="element" value=0></p>
-		<p>敵の防御：<input id="defence" value=0></p>
-		<p>チェイン補正強化(0〜70)：<input id="chainhosei" value=70></p>
-		<p>乱数(0〜9)：<input id="rand" value=0></p>
-
-		<table id="damageTable">
-			<tr>
-				<td></td>
-				<td>1枚目</td>
-				<td>2枚目</td>
-				<td>3枚目</td>
-				<td>4枚目</td>
-				<td>5枚目</td>
-				<td>6枚目</td>
-				<td>7枚目</td>
-				<td>8枚目</td>
-				<td>9枚目</td>
-				<td>10枚目</td>
-				<td>11枚目</td>
-				<td>12枚目</td>
-				<td>13枚目</td>
-				<td>14枚目</td>
-				<td>15枚目</td>
-				<td>16枚目</td>
-				<td>合計</td>
-			</tr>
-			<tr id="unit1damage">
-				<td>ユニット1</td>
-				<td>0</td>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
-				<td>7</td>
-				<td>8</td>
-				<td>9</td>
-				<td>10</td>
-				<td>11</td>
-				<td>12</td>
-				<td>13</td>
-				<td>14</td>
-				<td>15</td>
-				<td>合計</td>
-			</tr>
-			<tr id="unit2damage">
-				<td>ユニット2</td>
-				<td>0</td>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
-				<td>7</td>
-				<td>8</td>
-				<td>9</td>
-				<td>10</td>
-				<td>11</td>
-				<td>12</td>
-				<td>13</td>
-				<td>14</td>
-				<td>15</td>
-				<td>合計</td>
-			</tr>
-			<tr id="unit3damage">
-				<td>ユニット3</td>
-				<td>0</td>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
-				<td>7</td>
-				<td>8</td>
-				<td>9</td>
-				<td>10</td>
-				<td>11</td>
-				<td>12</td>
-				<td>13</td>
-				<td>14</td>
-				<td>15</td>
-				<td>合計</td>
-			</tr>
-			<tr id="unit4damage">
-				<td>ユニット4</td>
-				<td>0</td>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
-				<td>7</td>
-				<td>8</td>
-				<td>9</td>
-				<td>10</td>
-				<td>11</td>
-				<td>12</td>
-				<td>13</td>
-				<td>14</td>
-				<td>15</td>
-				<td>合計</td>
-			</tr>
-		</table>
+		<div id="contents">
+			<p>ロードラのダメージ計算</p>
+			<table id="damageTable">
+				<tr>
+					<td></td>
+					<td>1枚目</td>
+					<td>2枚目</td>
+					<td>3枚目</td>
+					<td>4枚目</td>
+					<td>5枚目</td>
+					<td>6枚目</td>
+					<td>7枚目</td>
+					<td>8枚目</td>
+					<td>9枚目</td>
+					<td>10枚目</td>
+					<td>11枚目</td>
+					<td>12枚目</td>
+					<td>13枚目</td>
+					<td>14枚目</td>
+					<td>15枚目</td>
+					<td>16枚目</td>
+					<td>合計</td>
+				</tr>
+				<tr id="unit1damage">
+					<td>ユニット1</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>10</td>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>合計</td>
+				</tr>
+				<tr id="unit2damage">
+					<td>ユニット2</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>10</td>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>合計</td>
+				</tr>
+				<tr id="unit3damage">
+					<td>ユニット3</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>10</td>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>合計</td>
+				</tr>
+				<tr id="unit4damage">
+					<td>ユニット4</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>10</td>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>合計</td>
+				</tr>
+			</table>
+			<div id="leftPanel">
+				<p>1体目の攻撃力：<input id="unit1atk" value=9043></p>
+				<p>2体目の攻撃力：<input id="unit2atk" value=27501></p>
+				<p>3体目の攻撃力：<input id="unit3atk" value=27501></p>
+				<p>4体目の攻撃力：<input id="unit4atk" value=13867></p>
+				<input type="button" id="calc" value="計算" onclick="calc();">
+			</div>
+			<div id="rightPanel">
+				<p>アサルト系スキル(%値)：<input id="assault" value=0></p>
+				<p>アサルト系スキル(上昇値)：<input id="assaultNum" value=0></p>
+				<p>属性特攻系スキル(上昇値)：<input id="tokkou" value=3000></p>
+				<p>全力の一撃(Yes:2 No:1)：<input id="zenryoku" value=1></p>
+				<p>弱点判定(Yes:1 No:0)：<input id="weak" value=0></p>
+				<p>アキュート(%値)：<input id="akyuto" value=0></p>
+				<p>属性補正(0〜10)：<input id="hosei" value=0></p>
+				<p>属性補正強化(上昇値)：<input id="element" value=0></p>
+				<p>敵の防御：<input id="defence" value=0></p>
+				<p>チェイン補正強化(0〜70)：<input id="chainhosei" value=70></p>
+				<p>乱数(0〜9)：<input id="rand" value=0></p>
+			</div>
+		</div>
 	</body>
 </html>
 
