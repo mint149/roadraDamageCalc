@@ -6,11 +6,10 @@ body{
 	/*センタリング*/
 	margin: 0 auto;
 }
-#leftPanel{
-	width: 460px;
-	float: left;
+div.menu{
+	width: 315px;
+	display: inline-block;
 }
-#rightPanel{
-	width: 480px;
-	float: left;;
+input.option{
+	width: 40px;
 }

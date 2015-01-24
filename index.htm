@@ -6,11 +6,11 @@
 		<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<title>ロードラ ダメージ計算</title> 
+		<title>ロードラ ダメージ計算機</title> 
 	</head> 
 	<body> 
 		<div id="contents">
-			<p>ロードラのダメージ計算</p>
+			<p>ロードラ ダメージ計算機</p>
 			<table id="damageTable">
 				<tr>
 					<td></td>
@@ -33,7 +33,7 @@
 					<td>合計</td>
 				</tr>
 				<tr id="unit1damage">
-					<td>ユニット1</td>
+					<td>Unit1</td>
 					<td>0</td>
 					<td>1</td>
 					<td>2</td>
@@ -53,7 +53,7 @@
 					<td>合計</td>
 				</tr>
 				<tr id="unit2damage">
-					<td>ユニット2</td>
+					<td>Unit2</td>
 					<td>0</td>
 					<td>1</td>
 					<td>2</td>
@@ -73,7 +73,7 @@
 					<td>合計</td>
 				</tr>
 				<tr id="unit3damage">
-					<td>ユニット3</td>
+					<td>Unit3</td>
 					<td>0</td>
 					<td>1</td>
 					<td>2</td>
@@ -93,7 +93,47 @@
 					<td>合計</td>
 				</tr>
 				<tr id="unit4damage">
-					<td>ユニット4</td>
+					<td>Unit4</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>10</td>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>合計</td>
+				</tr>
+				<tr id="unit5damage">
+					<td>Unit5</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>10</td>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>合計</td>
+				</tr>
+				<tr id="unit6damage">
+					<td>Unit6</td>
 					<td>0</td>
 					<td>1</td>
 					<td>2</td>
@@ -113,25 +153,29 @@
 					<td>合計</td>
 				</tr>
 			</table>
-			<div id="leftPanel">
-				<p>1体目の攻撃力：<input id="unit1atk" value=9043></p>
-				<p>2体目の攻撃力：<input id="unit2atk" value=27501></p>
-				<p>3体目の攻撃力：<input id="unit3atk" value=27501></p>
-				<p>4体目の攻撃力：<input id="unit4atk" value=13867></p>
-				<input type="button" id="calc" value="計算" onclick="calc();">
+			<div class="menu">
+				<p>1体目の攻撃力：<input class="option" id="unit1atk" value=9043></p>
+				<p>2体目の攻撃力：<input class="option" id="unit2atk" value=27501></p>
+				<p>3体目の攻撃力：<input class="option" id="unit3atk" value=27501></p>
+				<p>4体目の攻撃力：<input class="option" id="unit4atk" value=13867></p>
+				<p>5体目の攻撃力：<input class="option" id="unit5atk" value=13867></p>
+				<p>6体目の攻撃力：<input class="option" id="unit6atk" value=13867></p>
 			</div>
-			<div id="rightPanel">
-				<p>アサルト系スキル(%値)：<input id="assault" value=0></p>
-				<p>アサルト系スキル(上昇値)：<input id="assaultNum" value=0></p>
-				<p>属性特攻系スキル(上昇値)：<input id="tokkou" value=3000></p>
-				<p>全力の一撃(Yes:2 No:1)：<input id="zenryoku" value=1></p>
-				<p>弱点判定(Yes:1 No:0)：<input id="weak" value=0></p>
-				<p>アキュート(%値)：<input id="akyuto" value=0></p>
-				<p>属性補正(0〜10)：<input id="hosei" value=0></p>
-				<p>属性補正強化(上昇値)：<input id="element" value=0></p>
-				<p>敵の防御：<input id="defence" value=0></p>
-				<p>チェイン補正強化(0〜70)：<input id="chainhosei" value=70></p>
-				<p>乱数(0〜9)：<input id="rand" value=0></p>
+			<div class="menu">
+				<p>アサルト系スキル(%値)：<input class="option" id="assault" value=0></p>
+				<p>アサルト系スキル(上昇値)：<input class="option" id="assaultNum" value=0></p>
+				<p>属性特攻(上昇値)：<input class="option" id="tokkou" value=3000></p>
+				<p>全力の一撃：<input class="option" id="zenryoku" value=1></p>
+				<p>弱点判定：<input class="option" id="weak" value=0></p>
+				<p>アキュート(%値)：<input class="option" id="akyuto" value=0></p>
+			</div>
+			<div class="menu">
+				<p>属性補正：<input class="option" id="hosei" value=0></p>
+				<p>属性補正強化：<input class="option" id="element" value=0></p>
+				<p>敵の防御：<input class="option" id="defence" value=0></p>
+				<p>チェイン補正：<input class="option" id="chainhosei" value=70></p>
+				<p>乱数(0〜9)：<input class="option" id="rand" value=0></p>
+				<input class="option" type="button" id="calc" value="計算" onclick="calc();">
 			</div>
 		</div>
 	</body>
