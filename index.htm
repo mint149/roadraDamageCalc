@@ -1,40 +1,17 @@
-
 <!DOCTYPE html> 
 <html> 
 	<head> 
 		<meta charset="utf-8">
 		<title>ロードラ ダメージ計算</title> 
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<style>
-			img,canvas,video {
-				/*
-				width:500px;
-				height:500px;
-				*/
-				background-color:black;
-			}
-			#capture {
-				background-color:#008800;
-			}
-			#stop {
-				background-color:#880000;
-			}
-
-		</style>
 	</head> 
 	<body> 
 		<p>ロードラのダメージ計算</p>
-		<p>1体目の攻撃力：<input></p>
-		<p>2体目の攻撃力：<input></p>
-		<p>3体目の攻撃力：<input></p>
-		<p>4体目の攻撃力：<input></p>
-		<button id="calc">計算</button>
-
-		<div id="wrapper"> 
-			<button id="capture">capture</button>
-			<button id="stop">stop</button>
-		</div>
-
+		<p>1体目の攻撃力：<input id="unit1atk"></p>
+		<p>2体目の攻撃力：<input id="unit2atk"></p>
+		<p>3体目の攻撃力：<input id="unit3atk"></p>
+		<p>4体目の攻撃力：<input id="unit4atk"></p>
+		<button id="calc" onclick="calc();">計算</button>
+		<p id="damage">8枚消し時の攻撃力：0</p>
 	</body>
 </html>
 
