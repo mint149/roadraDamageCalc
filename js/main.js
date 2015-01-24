@@ -14,6 +14,7 @@
 */
 
 var atk = new Array(4);
+var sum = new Array(4);
 var assault = 0;
 var assaultNum = 0;
 var tokkou = 3000;
@@ -26,7 +27,8 @@ var defence = 0;
 var chain = [100,60,50,40,40,40,40,30,30,30,30,30,30,30,30,30];
 var chainhosei = 0;
 var rand = 0;
-var sum = 0;
+
+var damageTables = $("table#damageTable").children("tr");
 
 var damage = [
 	[100,60,50,40,40,40,40,30,30,30,30,30,30,30,30,30],
@@ -52,7 +54,7 @@ function calc() {
 	defence = parseInt($("#defence").val());
 	chainhosei = parseInt($("#chainhosei").val());
 	rand = parseInt($("#rand").val());
-	sum = 0;
+	sum = [0,0,0,0];
 
 	//16パネル(8パネル*ツイン分)のダメージ計算
 	for (var unitNum = 0; unitNum < atk.length; unitNum++) {
@@ -67,10 +69,16 @@ function calc() {
 			* Math.min(100,(chain[chainNum] + chainhosei)) * 0.01
 			+ atk[unitNum] * 0.01 * rand;	
 
-			sum += damage[unitNum][chainNum];
+			sum[unitNum] += damage[unitNum][chainNum];
 		};
 	};
 
 	//結果表示
-	$("#damage16panel").text("16枚消し時の攻撃力：" + sum);
+	for (var i = 0; i < 4; i++) {
+		for (var j = 0; j < 16; j++) {
+			$("#damageTable").find("tr").eq(i+1).find("td").eq(j+1).text(parseInt(damage[i][j]));
+		};
+		$("#damageTable").find("tr").eq(i+1).find("td").eq(17).text(parseInt(sum[i]));
+	};
+
 }
