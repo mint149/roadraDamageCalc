@@ -173,13 +173,106 @@
 					<td></td>
 				</tr>
 			</table>
-			<div class="menu">
-				<p>1体目の攻撃力：<input class="option" id="unit1atk" value=9043></p>
-				<p>2体目の攻撃力：<input class="option" id="unit2atk" value=27501></p>
-				<p>3体目の攻撃力：<input class="option" id="unit3atk" value=27501></p>
-				<p>4体目の攻撃力：<input class="option" id="unit4atk" value=13867></p>
-				<p>5体目の攻撃力：<input class="option" id="unit5atk" value=13867></p>
-				<p>6体目の攻撃力：<input class="option" id="unit6atk" value=13867></p>
+			<p id="panels">剣:
+				<select name="sword">
+					<option selected>0</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+				</select>
+				槍:
+				<select name="rance">
+					<option selected>0</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+				</select>
+				弓:
+				<select name="arrow">
+					<option selected>0</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+				</select>
+				杖:
+				<select name="rod">
+					<option selected>0</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+				</select>
+				で<strong id="damage">0</strong>ダメージ
+			</p>
+
+			<div class="menu" id="units">
+				<p>1体目の攻撃力：<input class="option" id="unit1atk" value=9043>
+					<select name="unit1job">
+						<option value=0 selected>剣</option>
+						<option value=1>槍</option>
+						<option value=2>弓</option>
+						<option value=3>杖</option>
+					</select>
+				</p>
+				<p>2体目の攻撃力：<input class="option" id="unit2atk" value=27501>
+					<select name="unit2job">
+						<option value=0 selected>剣</option>
+						<option value=1>槍</option>
+						<option value=2>弓</option>
+						<option value=3>杖</option>
+					</select>
+				</p>
+				<p>3体目の攻撃力：<input class="option" id="unit3atk" value=27501>
+					<select name="unit3job">
+						<option value=0 selected>剣</option>
+						<option value=1>槍</option>
+						<option value=2>弓</option>
+						<option value=3>杖</option>
+					</select>
+				</p>
+				<p>4体目の攻撃力：<input class="option" id="unit4atk" value=13867>
+					<select name="unit4job">
+						<option value=0 selected>剣</option>
+						<option value=1>槍</option>
+						<option value=2>弓</option>
+						<option value=3>杖</option>
+					</select>
+				</p>
+				<p>5体目の攻撃力：<input class="option" id="unit5atk" value=13867>
+					<select name="unit5job">
+						<option value=0 selected>剣</option>
+						<option value=1>槍</option>
+						<option value=2>弓</option>
+						<option value=3>杖</option>
+					</select>
+				</p>
+				<p>6体目の攻撃力：<input class="option" id="unit6atk" value=13867>
+					<select name="unit6job">
+						<option value=0 selected>剣</option>
+						<option value=1>槍</option>
+						<option value=2>弓</option>
+						<option value=3>杖</option>
+					</select>
+				</p>
 			</div>
 			<div class="menu">
 				<p>アサルト系スキル(%値)：<input class="option" id="assault" value=0></p>

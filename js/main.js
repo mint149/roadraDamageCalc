@@ -14,6 +14,7 @@
 */
 
 var atk = new Array(6);
+var job = new Array(6);
 var damagePerUnit = new Array(6);
 var damagePerPanel = new Array(16);
 var assault = 0;
@@ -28,6 +29,8 @@ var defence = 0;
 var chain = [100,60,50,40,40,40,40,30,30,30,30,30,30,30,30,30];
 var chainhosei = 0;
 var rand = 0;
+var totalDamage = 0;
+var panel = [0,0,0,0];
 
 var damage = [
 	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -40,12 +43,13 @@ var damage = [
 
 function calc() {
 	//値を取得
-	atk[0] = parseInt($("#unit1atk").val());
-	atk[1] = parseInt($("#unit2atk").val());
-	atk[2] = parseInt($("#unit3atk").val());
-	atk[3] = parseInt($("#unit4atk").val());
-	atk[4] = parseInt($("#unit5atk").val());
-	atk[5] = parseInt($("#unit6atk").val());
+	for (var unitNum = 0; unitNum < atk.length; unitNum++) {
+		atk[unitNum] = parseInt($("#units").find("input").eq(unitNum).val());
+		job[unitNum] = parseInt($("#units").find("select").eq(unitNum).val());
+	};
+	for (var panelNum = 0; panelNum < panel.length; panelNum++) {
+		panel[panelNum] = parseInt($("#panels").find("select").eq(panelNum).val());
+	};
 	assault = parseInt($("#assault").val());
 	assaultNum = parseInt($("#assaultNum").val());
 	tokkou = parseInt($("#tokkou").val());
@@ -57,6 +61,7 @@ function calc() {
 	defence = parseInt($("#defence").val());
 	chainhosei = parseInt($("#chainhosei").val());
 	rand = parseInt($("#rand").val());
+	totalDamage = 0;
 	damagePerUnit = [0,0,0,0,0,0];
 	damagePerPanel = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
@@ -81,7 +86,7 @@ function calc() {
 		};
 	};
 
-	//結果表示
+	//表に結果表示
 	for (var i = 0; i < atk.length; i++) {
 		for (var j = 0; j < chain.length; j++) {
 			$("#damageTable").find("tr").eq(i+1).find("td").eq(j+1).text(parseInt(damage[i][j]));
@@ -91,4 +96,17 @@ function calc() {
 	for (var i = 0; i < chain.length; i++) {
 		$("#damageTable").find("tr").eq(7).find("td").eq(i+1).text(parseInt(damagePerPanel[i]));
 	};
+
+	//パネル何枚でどれくらいダメージが出るか表示
+	for (var i = 0; i < atk.length; i++) {
+		for (var j = 0; j < chain.length; j++) {
+			if(j < panel[job[i]]){
+				totalDamage += damage[i][j];
+				$("#damageTable").find("tr").eq(i+1).find("td").eq(j+1).css("background-color", "#ddddff");
+			}else{
+				$("#damageTable").find("tr").eq(i+1).find("td").eq(j+1).css("background-color", "#ffffff");
+			}
+		}
+	}
+	$("#damage").text(parseInt(totalDamage));
 }
