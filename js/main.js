@@ -14,7 +14,8 @@
 */
 
 var atk = new Array(6);
-var sum = new Array(6);
+var damagePerUnit = new Array(6);
+var damagePerPanel = new Array(16);
 var assault = 0;
 var assaultNum = 0;
 var tokkou = 3000;
@@ -56,7 +57,8 @@ function calc() {
 	defence = parseInt($("#defence").val());
 	chainhosei = parseInt($("#chainhosei").val());
 	rand = parseInt($("#rand").val());
-	sum = [0,0,0,0,0,0];
+	damagePerUnit = [0,0,0,0,0,0];
+	damagePerPanel = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 	//16パネル(8パネル*ツイン分)のダメージ計算
 	for (var unitNum = 0; unitNum < atk.length; unitNum++) {
@@ -74,7 +76,8 @@ function calc() {
 				* Math.min(100,(chain[chainNum] + chainhosei)) * 0.01
 				+ atk[unitNum] * 0.01 * rand;
 			};
-			sum[unitNum] += damage[unitNum][chainNum];
+			damagePerUnit[unitNum] += damage[unitNum][chainNum];
+			damagePerPanel[chainNum] += damage[unitNum][chainNum];
 		};
 	};
 
@@ -83,7 +86,9 @@ function calc() {
 		for (var j = 0; j < chain.length; j++) {
 			$("#damageTable").find("tr").eq(i+1).find("td").eq(j+1).text(parseInt(damage[i][j]));
 		};
-		$("#damageTable").find("tr").eq(i+1).find("td").eq(17).text(parseInt(sum[i]));
+		$("#damageTable").find("tr").eq(i+1).find("td").eq(17).text(parseInt(damagePerUnit[i]));
 	};
-
+	for (var i = 0; i < chain.length; i++) {
+		$("#damageTable").find("tr").eq(7).find("td").eq(i+1).text(parseInt(damagePerPanel[i]));
+	};
 }

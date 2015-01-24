@@ -13,3 +13,12 @@ div.menu{
 input.option{
 	width: 40px;
 }
+table{
+	border: 1px;
+	border-collapse: collapse;
+}
+td{
+	padding: 2px;
+	background-color: #fff;
+	border: 1px solid #b9b9b9;
+}
