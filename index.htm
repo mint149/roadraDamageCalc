@@ -273,22 +273,35 @@
 						<option value=3>杖</option>
 					</select>
 				</p>
+				<input class="option" type="button" id="calc" value="計算" onclick="calc();">
 			</div>
 			<div class="menu">
 				<p>アサルト系スキル(%値)：<input class="option" id="assault" value=0></p>
 				<p>アサルト系スキル(固定値)：<input class="option" id="assaultNum" value=0></p>
 				<p>属性特攻(上昇値)：<input class="option" id="tokkou" value=3000></p>
-				<p>全力の一撃：<input class="option" id="zenryoku" value=1></p>
-				<p>弱点判定：<input class="option" id="weak" value=0></p>
+				<p>全力の一撃：<input type="checkbox" id="zenryoku" value=1></p>
+				<p>弱点判定：<input type="checkbox" id="weak" value=0></p>
 				<p>アキュート(%値)：<input class="option" id="akyuto" value=0></p>
+				<p>敵の防御：<input class="option" id="defence" value=0></p>
 			</div>
 			<div class="menu">
+				<p>ツイン：
+					剣<input type="checkbox" id="twinSword" value="0">
+					槍<input type="checkbox" id="twinRance" value="1">
+					弓<input type="checkbox" id="twinArrow" value="2">
+					杖<input type="checkbox" id="twinRod" value="3">
+				</p>
+				<p>フィニッシュ：
+					剣<input type="checkbox" id="finishSword" value="0">
+					槍<input type="checkbox" id="finishRance" value="1">
+					弓<input type="checkbox" id="finishArrow" value="2">
+					杖<input type="checkbox" id="finishRod" value="3">
+				</p>
 				<p>属性補正(0〜10)：<input class="option" id="hosei" value=0></p>
 				<p>属性補正強化：<input class="option" id="element" value=0></p>
-				<p>敵の防御：<input class="option" id="defence" value=0></p>
 				<p>チェイン補正：<input class="option" id="chainhosei" value=70></p>
+				<p>ダメージ倍率：<input class="option" id="damageBairitu" value=0></p>
 				<p>乱数(0〜9)：<input class="option" id="rand" value=0></p>
-				<input class="option" type="button" id="calc" value="計算" onclick="calc();">
 			</div>
 			<div>
 				<p>各項目の説明:</p>
@@ -299,6 +312,7 @@
 				<p>属性補正…移動中に属性パネルを踏むと増えるアレです。0〜10を入力してください。</p>
 				<p>属性補正強化…マクスウェルなど、属性補正を強化するスキルに対応します。上昇値をそのまま入力してください。</p>
 				<p>チェイン補正…あまぎなど、チェイン補正を上昇させるスキルに対応します。上昇する%値を入力してください。</p>
+				<p>ダメージ倍率…ロイドなど、ダメージをn倍にするスキルに対応します。ロイドなら50,クロシオは60という風に、上昇する%値を入力してください。</p>
 				<p>乱数…ダメージ計算時に発生する乱数をここで調整できます。0〜9を入力してください。</p>
 				<p></p>
 			</div>

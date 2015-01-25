@@ -18,6 +18,7 @@ var job = new Array(6);
 var damagePerUnit = new Array(6);
 var damagePerPanel = new Array(16);
 var assault = 0;
+var damageBairitu = 0;
 var assaultNum = 0;
 var tokkou = 3000;
 var zenryoku = 1;
@@ -53,13 +54,22 @@ function calc() {
 	assault = parseInt($("#assault").val());
 	assaultNum = parseInt($("#assaultNum").val());
 	tokkou = parseInt($("#tokkou").val());
-	zenryoku = parseInt($("#zenryoku").val());
-	weak = parseInt($("#weak").val());
+	if($("#zenryoku").attr("checked") == undefined){
+		zenryoku = 1;
+	}else{
+		zenryoku = 2;
+	}
+	if($("#weak").attr("checked") == undefined){
+		weak = 0;
+	}else{
+		weak = 1;
+	}
 	akyuto = parseInt($("#akyuto").val());
 	hosei = parseInt($("#hosei").val());
 	element = parseInt($("#element").val());
 	defence = parseInt($("#defence").val());
 	chainhosei = parseInt($("#chainhosei").val());
+	damageBairitu = parseInt($("#damageBairitu").val());
 	rand = parseInt($("#rand").val());
 	totalDamage = 0;
 	damagePerUnit = [0,0,0,0,0,0];
@@ -73,12 +83,14 @@ function calc() {
 			}else{
 				damage[unitNum][chainNum] = ((Math.pow(atk[unitNum],0.95)
 				 + atk[unitNum] * assault * 0.01
-				 + tokkou)
+				 + tokkou
+				 + assaultNum)
 				* zenryoku
 				+ weak * (100 + akyuto) * Math.pow(atk[unitNum],0.46)
 				+ hosei * (300 + element)
 				- defence)
 				* Math.min(100,(chain[chainNum] + chainhosei)) * 0.01
+				* (100 + damageBairitu) * 0.01
 				+ atk[unitNum] * 0.01 * rand;
 			};
 			damagePerUnit[unitNum] += damage[unitNum][chainNum];
