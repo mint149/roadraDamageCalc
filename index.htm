@@ -11,6 +11,7 @@
 	<body> 
 		<div id="contents">
 			<p><h2>ロードラ ダメージ計算機</h2></p>
+			<!-- 
 			<table id="damageTable">
 				<tr>
 					<td></td>
@@ -173,59 +174,81 @@
 					<td></td>
 				</tr>
 			</table>
-			<p id="panels">剣:
-				<select name="sword">
-					<option selected>0</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-				</select>
-				槍:
-				<select name="rance">
-					<option selected>0</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-				</select>
-				弓:
-				<select name="arrow">
-					<option selected>0</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-				</select>
-				杖:
-				<select name="rod">
-					<option selected>0</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-				</select>
-				で<strong id="damage">0</strong>ダメージ
-			</p>
+			 -->
+			<table id="panels">
+				<tr>
+					<td>
+						<select name="panel1">
+							<option value=0 selected>剣</option>
+							<option value=1>槍</option>
+							<option value=2>弓</option>
+							<option value=3>杖</option>
+						</select>
+					</td>
+					<td>
+						<select name="panel2">
+							<option value=0 selected>剣</option>
+							<option value=1>槍</option>
+							<option value=2>弓</option>
+							<option value=3>杖</option>
+						</select>
+					</td>
+					<td>
+						<select name="panel3">
+							<option value=0 selected>剣</option>
+							<option value=1>槍</option>
+							<option value=2>弓</option>
+							<option value=3>杖</option>
+						</select>
+					</td>
+					<td>
+						<select name="panel4">
+							<option value=0 selected>剣</option>
+							<option value=1>槍</option>
+							<option value=2>弓</option>
+							<option value=3>杖</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<select name="panel5">
+							<option value=0 selected>剣</option>
+							<option value=1>槍</option>
+							<option value=2>弓</option>
+							<option value=3>杖</option>
+						</select>
+					</td>
+					<td>
+						<select name="panel6">
+							<option value=0 selected>剣</option>
+							<option value=1>槍</option>
+							<option value=2>弓</option>
+							<option value=3>杖</option>
+						</select>
+					</td>
+					<td>
+						<select name="panel7">
+							<option value=0 selected>剣</option>
+							<option value=1>槍</option>
+							<option value=2>弓</option>
+							<option value=3>杖</option>
+						</select>
+					</td>
+					<td>
+						<select name="panel8">
+							<option value=0 selected>剣</option>
+							<option value=1>槍</option>
+							<option value=2>弓</option>
+							<option value=3>杖</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<p>で<strong id="damage">0</strong>ダメージ</p>
 
 			<div class="menu" id="units">
-				<p>1体目の攻撃力：<input class="option" id="unit1atk" value=0>
+				<p>1体目の攻撃力：<input class="option" id="unit1atk" value=10000>
 					<select name="unit1job">
 						<option value=0 selected>剣</option>
 						<option value=1>槍</option>
@@ -233,7 +256,7 @@
 						<option value=3>杖</option>
 					</select>
 				</p>
-				<p>2体目の攻撃力：<input class="option" id="unit2atk" value=0>
+				<p>2体目の攻撃力：<input class="option" id="unit2atk" value=10000>
 					<select name="unit2job">
 						<option value=0 selected>剣</option>
 						<option value=1>槍</option>
@@ -241,7 +264,7 @@
 						<option value=3>杖</option>
 					</select>
 				</p>
-				<p>3体目の攻撃力：<input class="option" id="unit3atk" value=0>
+				<p>3体目の攻撃力：<input class="option" id="unit3atk" value=10000>
 					<select name="unit3job">
 						<option value=0 selected>剣</option>
 						<option value=1>槍</option>
@@ -249,7 +272,7 @@
 						<option value=3>杖</option>
 					</select>
 				</p>
-				<p>4体目の攻撃力：<input class="option" id="unit4atk" value=0>
+				<p>4体目の攻撃力：<input class="option" id="unit4atk" value=10000>
 					<select name="unit4job">
 						<option value=0 selected>剣</option>
 						<option value=1>槍</option>
@@ -274,15 +297,17 @@
 					</select>
 				</p>
 				<input class="option" type="button" id="calc" value="計算" onclick="calc();">
+				<p>uyy</p>
 			</div>
 			<div class="menu">
 				<p>アサルト系スキル(%値)：<input class="option" id="assault" value=0></p>
 				<p>アサルト系スキル(固定値)：<input class="option" id="assaultNum" value=0></p>
 				<p>属性特攻(上昇値)：<input class="option" id="tokkou" value=0></p>
-				<p>全力の一撃：<input type="checkbox" id="zenryoku" value=1></p>
-				<p>弱点判定：<input type="checkbox" id="weak" value=0></p>
-				<p>アキュート(%値)：<input class="option" id="akyuto" value=0></p>
+				<p>全力の一撃：<input type="checkbox" id="zenryoku" value=true></p>
+				<p>弱点判定：<input type="checkbox" id="weak" value=true></p>
 				<p>敵の防御：<input class="option" id="defence" value=0></p>
+				<p>カットイン：<input type="checkbox" id="cutIn" value=true></p>
+				<p>稲妻カットイン：<input type="checkbox" id="thunderCutIn" value=true></p>
 			</div>
 			<div class="menu">
 				<p>ツイン：
@@ -297,6 +322,7 @@
 					弓<input type="checkbox" id="finishArrow" value="2">
 					杖<input type="checkbox" id="finishRod" value="3">
 				</p>
+				<p>アキュート(%値)：<input class="option" id="akyuto" value=0></p>
 				<p>属性補正(0〜10)：<input class="option" id="hosei" value=0></p>
 				<p>属性補正強化：<input class="option" id="element" value=0></p>
 				<p>チェイン補正：<input class="option" id="chainhosei" value=0></p>
