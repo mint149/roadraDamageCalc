@@ -31,6 +31,8 @@ var calcedChain;
 var atk = new Array(6);
 var job = new Array(6);
 var panels = new Array(8);
+var isTwin = new Array(4);
+var isFinish = new Array(4);
 var jobPanelNum = new Array(4);
 var damagePerUnit = new Array(6);
 var damagePerPanel = new Array(16);
@@ -44,7 +46,11 @@ var akyuto = 0;
 var hosei = 0;
 var element = 0;
 var defence = 0;
-var chain = [100,60,50,40,40,40,40,30,30,30,30,30,30,30,30,30];
+var chain = [
+			100,60,50,40,40,40,40,30,
+			30,30,30,30,30,30,30,30,
+			30,30,30,30,30,30,30,30,
+			];
 var chainhosei = 0;
 var rand = 0;
 var totalDamage = 0;
@@ -70,6 +76,11 @@ function calc() {
 	for (var panelNum = 0; panelNum < panels.length; panelNum++) {
 		panels[panelNum] = parseInt($("#panels").find("select").eq(panelNum).val());
 		jobPanelNum[panels[panelNum]] += 1;
+	};
+
+	for (var jobNum = 0; jobNum < 4; jobNum++) {
+		isTwin[jobNum] = $("#isTwin").find("input").eq(jobNum).is(":checked");
+		isFinish[jobNum] = $("#isFinish").find("input").eq(jobNum).is(":checked");
 	};
 	assault = parseInt($("#assault").val());
 	assaultNum = parseInt($("#assaultNum").val());
@@ -108,7 +119,17 @@ function calc() {
 
 	//ダメージ計算
 	for (var unitNum = 0; unitNum < atk.length; unitNum++) {
-		for (var panelNum = 0; panelNum < jobPanelNum[job[unitNum]]; panelNum++) {
+		//ユニットが反応するパネル数
+		var jobPanels = jobPanelNum[job[unitNum]];
+
+		// ツインなら2倍、フィニッシュなら3倍の回数攻撃
+		if(isTwin[job[unitNum]] && !isFinish[job[unitNum]]){
+			jobPanels = jobPanels * 2;
+		}else if (isFinish[job[unitNum]]) {
+			jobPanels = jobPanels * 3;
+		};
+
+		for (var panelNum = 0; panelNum < jobPanels; panelNum++) {
 			//計算式の各変数を求める
 			calcedAtk = Math.pow(atk[unitNum] + assaultNum, 0.95) + atk[unitNum] * assault * 0.01 + tokkou;
 			calcedWeak = weak * (100 + akyuto) * Math.pow(atk[unitNum],0.46);
@@ -116,7 +137,7 @@ function calc() {
 			calcedChain = Math.min(100,(chain[panelNum] + chainhosei)) * 0.01;
 
 			// カットイン攻撃かつ最後のコンボの場合、チェイン補正を100にする
-			if (cutIn && ((panelNum + 1) == jobPanelNum[job[unitNum]])) {
+			if (cutIn && ((panelNum + 1) == jobPanels)) {
 				calcedChain = 1;
 			};
 
